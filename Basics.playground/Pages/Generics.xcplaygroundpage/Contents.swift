@@ -12,9 +12,7 @@ var doubleArray     = [3.1]
 // For loops then print statements are too much verbos
 
 // Generics kicks in
-
 // Ex 1)
-
 //func printElements<Generic>(array: [Generic]) {
 
 func printElements<T>(array: [T]) {

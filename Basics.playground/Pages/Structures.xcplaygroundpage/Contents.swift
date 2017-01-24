@@ -1,41 +1,30 @@
-// Structures & Blueprint
 
 import Foundation
 
-struct Human {
-    var numberOfLegs: Int
-    var numberOfFinders: Int
-    var name: String
+// Cooler Way 🕶
+class NewDayOfWeek {
+    var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
     
-    func sayMyName() {
-        print("My Name is \(name) and I have \(numberOfLegs) legs.")
+    subscript(index: Int) -> String {
+        return days[index]
     }
 }
 
-var ashish = Human(numberOfLegs: 2,
-                   numberOfFinders: 10,
-                   name: "Ashish")
+var newdDayOfWeek = NewDayOfWeek()
+newdDayOfWeek[0] // “Sun”
+newdDayOfWeek[1] // “Mon”
 
-ashish.name
-ashish.numberOfFinders
-ashish.numberOfLegs
-
-print(ashish.sayMyName())
-
-// Ex 2) Finding volume of cuboid
-
-struct Cuboid {
-    var width: Double, height: Double, depth: Double
-    // Computed Property
-    var volume: Double {
-        get {
-            return width * height * depth
-        }
+// willSet & didSet
+var celsius: Double = 0
+var fahrenheit: Double = 100 {
+    willSet {
+        print("You are about to convert")
+    } didSet {
+        celsius = (fahrenheit - 32) * (5 / 9)
     }
 }
 
-let fourByFiveByTwo: Cuboid = Cuboid(width: 4, height: 5, depth: 2)
-print(fourByFiveByTwo.volume)
-
-let fourByFiveByThree: Cuboid = Cuboid(width: 4, height: 5, depth: 3)
-print(fourByFiveByThree.volume)
+fahrenheit = 300 // "You are about to convert"
+celsius // 148.9
+fahrenheit = 200 // "You are about to convert"
+celsius // 93.3
